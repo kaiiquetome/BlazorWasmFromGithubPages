@@ -24,10 +24,10 @@ jobs:
         run: dotnet workload install wasm-tools
         
       - name: Restaurar dependências
-        run: dotnet restore BlazorWasmFromGithubPages.csproj
+        run: dotnet restore BlazorWasmFromGithubPages/BlazorWasmFromGithubPages.csproj
 
       - name: Publicar com dotnet
-        run: dotnet publish BlazorWasmFromGithubPages.csproj --configuration Release --output build
+        run: dotnet publish BlazorWasmFromGithubPages/BlazorWasmFromGithubPages.csproj --configuration Release --output build
 
       - name: Alterar base-tag no index.html de / para /BlazorWasmFromGithubPages/
         run: sed -i 's|<base href="/" />|<base href="/BlazorWasmFromGithubPages/" />|g' build/wwwroot/index.html
